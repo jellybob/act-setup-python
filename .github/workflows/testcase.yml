@@ -3,9 +3,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-package:
+  # This will always fail.
+  install-311:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-python@v4
         with:
           python-version: 3.11
+
+  # This will pass on the -full containers, but not on the standard ones.
+  install-37:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.7
